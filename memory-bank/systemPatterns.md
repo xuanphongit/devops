@@ -24,11 +24,25 @@
                     └───────────────────────┘
 ```
 
+### Clean Architecture for .NET Microservices
+- **Standardized for all .NET backend services**
+- **Layered structure:**
+  - API (Presentation): Controllers, HTTP
+  - Application: Use cases, DTOs
+  - Domain: Entities, interfaces, business rules
+  - Infrastructure: Database, external services, repositories
+- **Dependency flow:** Infrastructure → Application → Domain (never the reverse)
+- **Benefits:**
+  - Testability, maintainability, clear separation of concerns
+  - Easy to swap infrastructure (e.g., database)
+  - Visual Studio solution for developer productivity
+- **Reference Implementation:** Auth Service (see services/auth)
+
 ### Core Services
-1. **Auth Service**: User authentication, authorization, JWT tokens
-2. **Product Service**: Product catalog, categories, search
-3. **Cart Service**: Shopping cart management, persistence
-4. **Order Service**: Order processing, payment integration
+1. **Auth Service**: User authentication, authorization, JWT tokens (Clean Architecture)
+2. **Product Service**: Product catalog, categories, search (Clean Architecture)
+3. **Cart Service**: Shopping cart management, persistence (Clean Architecture)
+4. **Order Service**: Order processing, payment integration (Clean Architecture)
 5. **Notification Service**: Email, SMS, push notifications
 6. **User Service**: User profiles, preferences
 7. **Inventory Service**: Stock management, reservations

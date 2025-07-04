@@ -5,6 +5,8 @@
 ### Backend Services
 - **Runtime**: .NET 8 (Latest LTS)
 - **Framework**: ASP.NET Core Web API
+- **Architecture**: Clean Architecture (API, Application, Domain, Infrastructure)
+- **Solution**: Visual Studio solution (.sln) for all microservices
 - **ORM**: Entity Framework Core
 - **Validation**: FluentValidation
 - **Documentation**: Swagger/OpenAPI
