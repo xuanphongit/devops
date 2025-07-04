@@ -1,0 +1,92 @@
+# E-Commerce Platform - Project Intelligence
+
+## 🧠 Project Learning Journal
+This file captures key insights and patterns discovered while working on the e-commerce platform project.
+
+## 📋 Project Context
+- **Project Type**: E-commerce platform with microservices architecture
+- **Technology Stack**: .NET 8, Vue.js 3, PostgreSQL, Redis, RabbitMQ, GKE, Terraform
+- **Architecture Pattern**: Event-driven microservices with GitOps deployment
+- **Development Approach**: Task-driven with comprehensive documentation
+
+## 🎯 Key Project Patterns
+
+### Memory Bank Workflow
+- **ALWAYS** read memory bank files at start of each session
+- **Memory bank structure**: projectbrief.md → productContext.md → systemPatterns.md → techContext.md → activeContext.md → progress.md
+- **Update triggers**: Significant changes, new patterns discovered, user requests "update memory bank"
+- **Critical files**: activeContext.md (current focus), progress.md (status tracking)
+
+### Week 1 Focus Areas
+1. **Architecture Design**: System diagrams, service specifications, communication patterns
+2. **Project Setup**: Repository structure, development environment, tool configuration
+3. **Technology Validation**: Confirm stack choices and integration approaches
+4. **Documentation**: Establish patterns for future development phases
+
+## 🛠️ Implementation Preferences
+
+### Documentation Standards
+- **Use emojis** for visual hierarchy and quick scanning
+- **Structured format**: Clear sections with consistent naming
+- **Task tracking**: Checkbox format for actionable items
+- **Status indicators**: 🟡 In Progress, ✅ Complete, ⚪ Not Started, 🔴 Blocked
+
+### Code Organization
+- **Microservices separation**: Clear service boundaries with dedicated folders
+- **Infrastructure as Code**: Terraform modules for reusable components
+- **GitOps structure**: Helm charts for application deployment
+- **Configuration management**: Environment-specific configs with base + overlays
+
+### Development Workflow
+- **Task-driven approach**: Follow task.md requirements closely
+- **Parallel development**: Design multiple services simultaneously
+- **Progressive complexity**: Start with core functionality, add advanced features
+- **Security-first**: Implement security patterns from the beginning
+
+## 🔍 Technical Insights
+
+### Architecture Decisions
+- **Database per service**: PostgreSQL for persistent data, Redis for caching/sessions
+- **Communication patterns**: REST APIs for sync, RabbitMQ events for async
+- **Authentication flow**: JWT tokens with 15-minute expiry, OAuth 2.0 for third-party
+- **Deployment strategy**: Blue-green deployments with canary releases
+
+### Technology Integrations
+- **.NET 8 Services**: ASP.NET Core Web API with Entity Framework Core
+- **Vue.js Frontend**: Composition API with Vuetify 3 for Material Design
+- **Infrastructure**: GKE with Terraform, NGINX Ingress, cert-manager for TLS
+- **Observability**: Prometheus + Grafana for metrics, Fluent Bit + Loki for logs
+
+## 🚨 Critical Considerations
+
+### Performance Requirements
+- **API Response**: <200ms for 95th percentile
+- **Page Load**: <2 seconds for first contentful paint
+- **Throughput**: 1000+ RPS per service
+- **Scalability**: Stateless services for horizontal scaling
+
+### Security Requirements
+- **Authentication**: JWT with proper expiry and refresh mechanisms
+- **Authorization**: RBAC with principle of least privilege
+- **Data Protection**: Encryption at rest and in transit, GDPR compliance
+- **Network Security**: TLS everywhere, NetworkPolicies, Secret Manager
+
+### Operational Excellence
+- **Zero-downtime deployments**: Blue-green strategy with health checks
+- **Monitoring**: 24/7 alerting with comprehensive dashboards
+- **Backup strategy**: Daily automated backups with 30-day retention
+- **Disaster recovery**: RTO <1 hour, RPO <15 minutes
+
+## 🔄 Evolution Notes
+- **Start date**: Initial project setup and memory bank creation
+- **Current phase**: Week 1 - Architecture Design & Project Setup
+- **Next evolution**: Microservices development starting with Auth Service
+
+## 💡 Future Considerations
+- **Service mesh**: Istio for advanced traffic management (future)
+- **Search capability**: Elasticsearch for product search (future)
+- **API versioning**: Strategy for backward compatibility
+- **Performance optimization**: Caching strategies, CDN integration
+- **Advanced monitoring**: Distributed tracing with Jaeger
+
+This project serves as a reference implementation for modern cloud-native e-commerce platforms with DevOps best practices. 
