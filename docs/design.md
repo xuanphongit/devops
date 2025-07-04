@@ -3,6 +3,84 @@
 ## 📋 Overview
 This document outlines the technical design for a modern, cloud-native e-commerce platform built with microservices architecture, following DevOps and GitOps best practices.
 
+---
+
+## 📄 `docs/design.md` –
+
+# 📐 System Design – E-commerce Microservices Platform
+
+---
+
+## 🎯 Purpose
+
+This document outlines the technical architecture and design decisions behind this cloud-native e-commerce project.
+
+---
+
+## 🧩 Microservices Overview
+
+| Service         | Description                                    |
+|----------------|------------------------------------------------|
+| **Auth**        | Handles user registration, login (JWT-based)  |
+| **Product**     | Manages product listing & search               |
+| **Cart**        | Stores in-session cart (Redis backend)         |
+| **Order**       | Handles checkout, order processing             |
+| **Notification**| Sends emails/SMS via RabbitMQ queue            |
+| **Gateway**     | API Gateway (YARP) to route requests           |
+
+All services are written in .NET 8 and deployed as independent containers.
+
+---
+
+## 🏗 Infrastructure
+
+Provisioned via **Terraform** on **Google Cloud Platform**:
+
+- **GKE**: Kubernetes cluster
+- **Cloud SQL**: PostgreSQL managed database
+- **Redis**: In-memory caching
+- **RabbitMQ**: Messaging queue
+- **VPC**: Private networking and firewall rules
+
+---
+
+## 🚦 DevOps & GitOps
+
+| Area              | Tool                  | Description                              |
+|-------------------|-----------------------|------------------------------------------|
+| CI/CD             | GitHub Actions        | Build & test microservices               |
+| GitOps            | Argo CD               | Sync manifests to GKE automatically      |
+| IaC               | Terraform             | Provision GCP infra                      |
+| Observability     | Prometheus + Grafana  | Metrics, dashboard, alerting             |
+| Logging           | Loki + Fluent Bit     | Centralized logs                         |
+| TLS & HTTPS       | cert-manager          | Auto-provision Let's Encrypt certificates|
+
+---
+
+## 🔐 Security
+
+- RBAC roles for services
+- GCP Secret Manager for secrets
+- TLS via cert-manager
+- NetworkPolicy for internal access control
+
+---
+
+## 🧠 Why Kubernetes?
+
+- Scalability and resilience
+- Declarative infrastructure
+- CI/CD integration with GitOps
+- Easy observability integration
+
+---
+
+## 🗺 Architecture Diagram
+
+📍 See [`docs/architecture.png`](./architecture.png)
+
+---
+
 ## 🏗️ System Architecture
 
 ### High-Level Architecture
